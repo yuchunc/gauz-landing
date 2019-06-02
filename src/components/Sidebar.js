@@ -1,53 +1,82 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import Scrollspy from 'react-scrollspy'
 
-export class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTab: 0,
-      tabs: [
-        { content: 'Welcome', href: '#intro' },
-        { content: 'Service', href: '#service' },
-        { content: 'Team', href: '#one' },
-        { content: 'Get in touch!', href: '#contact' },
-      ],
-    };
+const Sidebar = () => {
+  const tabs = [
+    { content: 'Welcome', id: 'intro' },
+    { content: 'Service', id: 'service' },
+    { content: 'Team', id: 'team' },
+    { content: 'Get in Touch', id: 'contact' },
+  ]
 
-    this.onTabSelect = this.onTabSelect.bind(this);
+  const ids = tabs.map( t => t.id)
+
+  const toggleCurrentNav = (id) => {
+    document.querySelectorAll(`a[id$=-nav]`).forEach( elem => {
+      elem.classList.remove("active")
+    })
+
+    document.getElementById(id + "-nav").classList.add("active")
   }
 
-  onTabSelect(index) {
-    this.setState({ activeTab: index });
+  return(
+    <section id="sidebar">
+      <div className="inner">
+        <nav>
+          <Scrollspy
+            items={ ids }
+            currentClassName="active"
+            onUpdate={ elem => { toggleCurrentNav(elem.id) }}
+            offset={ -40 }
+          >
+            {tabs.map( tab => (
+              <li>
+                <a href={`#${tab.id}`} id={`${tab.id}-nav`}>
+                    {tab.content}
+                </a>
+              </li>
+            ))}
+          </Scrollspy>
+        </nav>
+      </div>
+    </section>
+  )
+}
+
+class SidebarClass extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = [
+      { content: 'Welcome', id: 'intro' },
+      { content: 'Service', id: 'service' },
+      { content: 'Team', id: 'team' },
+      { content: 'Get in Touch', id: 'contact' },
+    ]
+
+    this.onTabSelect = this.onTabSelect.bind(this);
+    this.ids = this.state.map( t => t.id )
   }
 
   render() {
-    const { tabs, activeTab } = this.state;
     return (
       <section id="sidebar">
         <div className="inner">
           <nav>
-            <ul>
-              {tabs.map((tab, i) => {
-                const { href, content } = tab;
-                return (
-                  <li key={href}>
-                    <a
-                      href="#/"
-                      className={i === activeTab ? 'active' : ''}
-                      onClick={e => {
-                        e.preventDefault();
-                        this.onTabSelect(i);
-                      }}
-                    >
-                      {content}
+            <Scrollspy
+              items={ this.ids }
+              currentClassName="active"
+            >
+                {this.state.map( tab => (
+                  <li>
+                    <a href={`#${tab.id}`} id={`${tab.id}-nav`}>
+                        {tab.content}
                     </a>
                   </li>
-                );
-              })}
-            </ul>
-          </nav>
-        </div>
-      </section>
+                ))}
+                </Scrollspy>
+              </nav>
+            </div>
+          </section>
     );
   }
 }
