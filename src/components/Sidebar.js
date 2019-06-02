@@ -7,9 +7,9 @@ export class Sidebar extends Component {
       activeTab: 0,
       tabs: [
         { content: 'Welcome', href: '#intro' },
-        { content: 'Who we are', href: '#one' },
-        { content: 'What we do', href: '#two' },
-        { content: 'Get in touch', href: '#three' },
+        { content: 'Service', href: '#service' },
+        { content: 'Team', href: '#one' },
+        { content: 'Get in touch!', href: '#contact' },
       ],
     };
 

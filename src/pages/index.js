@@ -15,17 +15,13 @@ const IndexPage = () => (
     <div id="wrapper">
       <section id="intro" className="wrapper style1 fullscreen fade-up">
         <div className="inner">
-          <h1>Hyperspace</h1>
+          <h1>GuaZ</h1>
           <p>
-            Just another fine responsive site template designed by{' '}
-            <a href="http://html5up.net">HTML5 UP</a>
-            <br />
-            and released for free under the{' '}
-            <a href="http://html5up.net/license">Creative Commons</a>.
+            We execute effective Google Adwords and Shopping Campaigns for you!
           </p>
           <ul className="actions">
             <li>
-              <a href="#one" className="button">
+              <a href="#service" className="button">
                 Learn more
               </a>
             </li>
@@ -33,84 +29,9 @@ const IndexPage = () => (
         </div>
       </section>
 
-      <section id="one" className="wrapper style2 spotlights">
-        <section>
-          <a href="/#" className="image" alt="image">
-            <img src={pic1} alt="" data-position="center center" />
-          </a>
-          <div className="content">
-            <div className="inner">
-              <h2>Sed ipsum dolor</h2>
-              <p>
-                Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
-                turpis mauris, eu ultricies erat malesuada quis. Aliquam
-                dapibus.
-              </p>
-              <ul className="actions">
-                <li>
-                  <Link className="button" to="/generic">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <a href="/#" className="image">
-            <img src={pic2} alt="" data-position="top center" />
-          </a>
-          <div className="content">
-            <div className="inner">
-              <h2>Feugiat consequat</h2>
-              <p>
-                Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
-                turpis mauris, eu ultricies erat malesuada quis. Aliquam
-                dapibus.
-              </p>
-              <ul className="actions">
-                <li>
-                  <Link className="button" to="/generic">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <a href="/#" className="image">
-            <img src={pic3} alt="" data-position="25% 25%" />
-          </a>
-          <div className="content">
-            <div className="inner">
-              <h2>Ultricies aliquam</h2>
-              <p>
-                Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
-                turpis mauris, eu ultricies erat malesuada quis. Aliquam
-                dapibus.
-              </p>
-              <ul className="actions">
-                <li>
-                  <Link className="button" to="/generic">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </section>
-
-      <section id="two" className="wrapper style3 fade-up">
+      <section id="service" className="wrapper style3 fade-up">
         <div className="inner">
           <h2>What we do</h2>
-          <p>
-            Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
-            turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus,
-            lacus eget hendrerit bibendum, urna est aliquam sem, sit amet
-            imperdiet est velit quis lorem.
-          </p>
           <div className="features">
             <section>
               <span className="icon major fa-code" />
@@ -144,42 +65,53 @@ const IndexPage = () => (
                 aliquam turpis mauris, sed ultricies erat dapibus.
               </p>
             </section>
-            <section>
-              <span className="icon major fa-chain" />
-              <h3>Urna quis bibendum</h3>
-              <p>
-                Phasellus convallis elit id ullam corper amet et pulvinar. Duis
-                aliquam turpis mauris, sed ultricies erat dapibus.
-              </p>
-            </section>
-            <section>
-              <span className="icon major fa-diamond" />
-              <h3>Aliquam urna dapibus</h3>
-              <p>
-                Phasellus convallis elit id ullam corper amet et pulvinar. Duis
-                aliquam turpis mauris, sed ultricies erat dapibus.
-              </p>
-            </section>
           </div>
           <ul className="actions">
             <li>
-              <Link className="button" to="/generic">
+              <a href="#team" className="button">
                 Learn more
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
       </section>
 
-      <section id="three" className="wrapper style1 fade-up">
+      <section id="team" className="wrapper style2 spotlights">
+        <section>
+          <a href="/#" className="image">
+            <img src={pic2} alt="" data-position="top center" />
+          </a>
+          <div className="content">
+            <div className="inner">
+              <h2>Feugiat consequat</h2>
+              <p>
+                Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
+                turpis mauris, eu ultricies erat malesuada quis. Aliquam
+                dapibus.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <a href="/#" className="image">
+            <img src={pic3} alt="" data-position="25% 25%" />
+          </a>
+          <div className="content">
+            <div className="inner">
+              <h2>Ultricies aliquam</h2>
+              <p>
+                Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
+                turpis mauris, eu ultricies erat malesuada quis. Aliquam
+                dapibus.
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="contact" className="wrapper style1 fade-up">
         <div className="inner">
           <h2>Get in touch</h2>
-          <p>
-            Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
-            turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus,
-            lacus eget hendrerit bibendum, urna est aliquam sem, sit amet
-            imperdiet est velit quis lorem.
-          </p>
           <div className="split style1">
             <section>
               <form method="post" action="#">
