@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Scrollspy from 'react-scrollspy'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Sidebar = () => {
   const tabs = [
@@ -27,13 +28,12 @@ const Sidebar = () => {
             items={ ids }
             currentClassName="active"
             onUpdate={ elem => { toggleCurrentNav(elem.id) }}
-            offset={ -40 }
           >
             {tabs.map( tab => (
               <li>
-                <a href={`#${tab.id}`} id={`${tab.id}-nav`}>
+                <AnchorLink href={`#${tab.id}`} id={`${tab.id}-nav`}>
                     {tab.content}
-                </a>
+                </AnchorLink>
               </li>
             ))}
           </Scrollspy>
@@ -41,44 +41,6 @@ const Sidebar = () => {
       </div>
     </section>
   )
-}
-
-class SidebarClass extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = [
-      { content: 'Welcome', id: 'intro' },
-      { content: 'Service', id: 'service' },
-      { content: 'Team', id: 'team' },
-      { content: 'Get in Touch', id: 'contact' },
-    ]
-
-    this.onTabSelect = this.onTabSelect.bind(this);
-    this.ids = this.state.map( t => t.id )
-  }
-
-  render() {
-    return (
-      <section id="sidebar">
-        <div className="inner">
-          <nav>
-            <Scrollspy
-              items={ this.ids }
-              currentClassName="active"
-            >
-                {this.state.map( tab => (
-                  <li>
-                    <a href={`#${tab.id}`} id={`${tab.id}-nav`}>
-                        {tab.content}
-                    </a>
-                  </li>
-                ))}
-                </Scrollspy>
-              </nav>
-            </div>
-          </section>
-    );
-  }
 }
 
 export default Sidebar;
