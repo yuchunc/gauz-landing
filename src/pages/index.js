@@ -16,8 +16,8 @@ const encode = data => {
 const handleSubmit = e => {
   e.preventDefault()
   const form = e.target
-  const inputs = new Map(form.querySelectorAll("input").map((elem) => [elem.name, elem.value]))
-  const valueObj = Object.fromEntries(inputs)
+  const inputs = Array.from(form.querySelectorAll("input")).map((elem) => [elem.name, elem.value])
+  const valueObj = Object.fromEntries(new Map(inputs))
   fetch('/', {
     method: "POST",
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -143,7 +143,7 @@ const IndexPage = () => (
                 method="POST"
                 data-netlify="true"
                 data-netlify-honeypot="dontusethis"
-                onsubmit={handleSubmit}
+                onSubmit={handleSubmit}
               >
                 <div className="fields">
                   <div style={{display: "hidden"}}>
