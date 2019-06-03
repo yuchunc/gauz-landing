@@ -115,7 +115,7 @@ const IndexPage = () => (
             <section>
               <form
                 name="contact"
-                method="post"
+                method="POST"
                 data-netlify="true"
                 data-netlify-honeypot="dontusethis"
               >
@@ -128,7 +128,7 @@ const IndexPage = () => (
                     <input type="text" name="name" id="name" />
                   </div>
                   <div className="field half">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Email or Phone #</label>
                     <input type="text" name="email" id="email" />
                   </div>
                   <div className="field">
