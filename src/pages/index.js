@@ -113,26 +113,32 @@ const IndexPage = () => (
           <h2>Get in touch</h2>
           <div className="split style1">
             <section>
-              <form method="post" action="#">
+              <form
+                name="contact"
+                method="post"
+                data-netlify="true"
+                data-netlify-honeypot="dontusethis"
+              >
                 <div className="fields">
+                  <div style={{display: "hidden"}}>
+                    <input type="hidden" name="dontusethis" id="name" />
+                  </div>
                   <div className="field half">
-                    <label for="name">Name</label>
+                    <label htmlFor="name">Name</label>
                     <input type="text" name="name" id="name" />
                   </div>
                   <div className="field half">
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input type="text" name="email" id="email" />
                   </div>
                   <div className="field">
-                    <label for="message">Message</label>
+                    <label htmlFor="message">Message</label>
                     <textarea name="message" id="message" rows="5" />
                   </div>
                 </div>
                 <ul className="actions">
                   <li>
-                    <a href="/#" className="button submit">
-                      Send Message
-                    </a>
+                    <input type="submit" className="button submit" value="Send Message" />
                   </li>
                 </ul>
               </form>
@@ -151,7 +157,7 @@ const IndexPage = () => (
                 </li>
                 <li>
                   <h3>Email</h3>
-                  <a href="/#">user@untitled.tld</a>
+                  <a href="mailto:natalie@gauz.io">hello@gauz.io</a>
                 </li>
                 <li>
                   <h3>Phone</h3>

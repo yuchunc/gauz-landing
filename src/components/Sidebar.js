@@ -29,8 +29,8 @@ const Sidebar = () => {
             currentClassName="active"
             onUpdate={ elem => { toggleCurrentNav(elem.id) }}
           >
-            {tabs.map( tab => (
-              <li>
+            {tabs.map( (tab, i) => (
+              <li key={i}>
                 <AnchorLink href={`#${tab.id}`} id={`${tab.id}-nav`}>
                     {tab.content}
                 </AnchorLink>
