@@ -7,6 +7,31 @@ import pic2 from '../images/pic02.jpg';
 import pic3 from '../images/pic03.jpg';
 import Sidebar from '../components/Sidebar';
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
+
+const handleSubmit = e => {
+  e.preventDefault()
+  const form = e.target
+  const inputs = new Map(form.querySelectorAll("input").map((elem) => [elem.name, elem.value]))
+  const valueObj = Object.fromEntries(inputs)
+  fetch('/', {
+    method: "POST",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encode({
+      'form-name': form.getAttribute('name'),
+      ...valueObj
+    })
+  }).then(() => console.log("success"))
+    .catch(error => {
+      console.log("form err", error)
+      alert("Sorry, something went wrong. :(")
+    })
+}
+
 const IndexPage = () => (
   <Layout>
     <Sidebar />
@@ -118,10 +143,11 @@ const IndexPage = () => (
                 method="POST"
                 data-netlify="true"
                 data-netlify-honeypot="dontusethis"
+                onsubmit={handleSubmit}
               >
                 <div className="fields">
                   <div style={{display: "hidden"}}>
-                    <input type="hidden" name="dontusethis" id="name" />
+                    <input type="hidden" name="dontusethis" id="dontusethis"/>
                   </div>
                   <div className="field half">
                     <label htmlFor="name">Name</label>
