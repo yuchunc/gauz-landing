@@ -17,12 +17,14 @@ const handleSubmit = e => {
   e.preventDefault()
   const form = e.target
   const inputs = Array.from(form.querySelectorAll("input")).map((elem) => [elem.name, elem.value])
+  const message = form.querySelector("textarea").value
   const valueObj = Object.fromEntries(new Map(inputs))
   fetch('/', {
     method: "POST",
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode({
       'form-name': form.getAttribute('name'),
+      'message': message,
       ...valueObj
     })
   }).then(() => console.log("success"))
@@ -147,7 +149,7 @@ const IndexPage = () => (
               >
                 <div className="fields">
                   <div style={{display: "hidden"}}>
-                    <input type="hidden" name="dontusethis" id="dontusethis"/>
+                    <input type="hidden" name="dontusethis"/>
                   </div>
                   <div className="field half">
                     <label htmlFor="name">Name</label>
