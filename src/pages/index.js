@@ -14,7 +14,7 @@ const IndexPage = () => (
     <div id="wrapper">
       <section id="intro" className="wrapper style1 fullscreen fade-up">
         <div className="inner">
-          <h1>GuaZ</h1>
+          <h1>Gauz</h1>
           <p>
             We execute effective Google Adwords and Shopping Campaigns for you!
           </p>
