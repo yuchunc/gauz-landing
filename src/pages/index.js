@@ -16,22 +16,31 @@ const encode = data => {
 const handleSubmit = e => {
   e.preventDefault()
   const form = e.target
-  const inputs = Array.from(form.querySelectorAll("input")).map((elem) => [elem.name, elem.value])
-  const message = form.querySelector("textarea").value
-  const valueObj = Object.fromEntries(new Map(inputs))
+  const inputFields = form.querySelectorAll("input")
+  const message = form.querySelector("textarea")
+
+  const postSuccess = () => {
+    inputFields.forEach( elem => elem.value = "")
+    message.value = ""
+    alert("Thank you! We'll get back to you ASAP!")
+  }
+
+  const inputs = Array.from(inputFields).map((elem) => [elem.name, elem.value])
+  const inputsObj = Object.fromEntries(new Map(inputs))
   fetch('/', {
     method: "POST",
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode({
       'form-name': form.getAttribute('name'),
-      'message': message,
-      ...valueObj
+      'message': message.value,
+      ...inputsObj
     })
-  }).then(() => console.log("success"))
-    .catch(error => {
-      console.log("form err", error)
-      alert("Sorry, something went wrong. :(")
-    })
+  })
+  .then(postSuccess)
+  .catch(error => {
+    console.log("form err", error)
+    alert("Sorry, something went wrong. :(")
+  })
 }
 
 const IndexPage = () => (
@@ -166,7 +175,9 @@ const IndexPage = () => (
                 </div>
                 <ul className="actions">
                   <li>
-                    <input type="submit" className="button submit" value="Send Message" />
+                    <button type="submit" className="button submit" >
+                      Send Message
+                    </button>
                   </li>
                 </ul>
               </form>
