@@ -282,10 +282,11 @@ p {
 /******* Container section *******/
 
 .container {
-	background: url('http://placehold.it/1920x1080') no-repeat center center;
+	background: url('../images/banner-bg.jpg') no-repeat center center;
 	background-size: cover;
 	background-attachment: fixed;
 }
+
 .container_block {
 	z-index: 3;
 }
@@ -1895,9 +1896,9 @@ p {
 		padding: 0;
 	}
 	.container {
-		display: block;
-		height: auto;
-		min-height: 0;
+		/*display: block;*/
+    height: 100vh;
+    min-height: 0;
 		padding: 120px 0 10px;
 		text-align: center;
 	}
