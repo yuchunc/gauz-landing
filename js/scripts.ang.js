@@ -9,22 +9,22 @@ app.controller('myPageCtrl', function($scope,$http){
 	/* GOOGLE MAP
 	/* ------------------------------ */
 
-	$scope.mapInitialization = function() {
-		$scope.myLatlng = new google.maps.LatLng(33.96290,-118.43589),
-		$scope.mapOptions = {
-			zoom: 14,
-			scrollwheel: false,
-			center: $scope.myLatlng
-		},
-		$scope.map = new google.maps.Map(document.getElementById('map'), $scope.mapOptions),
-		$scope.marker = new google.maps.Marker({
-			position: $scope.myLatlng,
-			map: $scope.map,
-			icon: "images/map.png"
-		});
-	}
+  // $scope.mapInitialization = function() {
+	// 	$scope.myLatlng = new google.maps.LatLng(33.96290,-118.43589),
+	// 	$scope.mapOptions = {
+	// 		zoom: 14,
+	// 		scrollwheel: false,
+	// 		center: $scope.myLatlng
+	// 	},
+	// 	$scope.map = new google.maps.Map(document.getElementById('map'), $scope.mapOptions),
+	// 	$scope.marker = new google.maps.Marker({
+	// 		position: $scope.myLatlng,
+	// 		map: $scope.map,
+	// 		icon: "images/map.png"
+	// 	});
+	// }
 
-	$scope.mapInitialization();
+  // $scope.mapInitialization();
 
 	/* ------------------------------ */
 	/* SCROLL BUTTON
