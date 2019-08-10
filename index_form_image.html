@@ -225,7 +225,10 @@
           <h4 class="uk-h4 uk-text-contrast uk-margin-large-bottom animated section_subtitle">If you have any questions, then please fill our contact form to get actual information about our project</h4>
 
           <!-- MESSAGE FORM -->
-          <form data-ng-submit="contactForm($event);" class="uk-form animated form_send_message" autocomplete="off">
+          <form class="uk-form animated form_send_message" autocomplete="off" data-netlify="true" netlify-honeypot="dontuseme" name="contact">
+            <div class="uk-hidden">
+              <input name="dontuseme" />
+            </div>
             <div class="uk-grid uk-grid-small uk-container-center uk-width-medium-2-3 uk-width-large-1-2 uk-margin-bottom">
               <div class="uk-width-small-1-2 uk-margin-bottom">
                 <input name="name" class="uk-width-1-1 uk-text-contrast form_input" type="text" placeholder="Name">
@@ -393,40 +396,9 @@
       </div>
     </div>
 
-    <!-- Modal subscribe window -->
-    <div id="modal_subscribe" class="uk-modal subscribe_window">
-      <div class="uk-modal-dialog uk-text-center uk-border-rounded">
-        <h4 class="uk-h4 uk-text-contrast subscribe_window_title">Subscribe to our newsletter</h4>
-        <!-- NEWSLETTER FORM -->
-        <form data-ng-submit="subLetterForm($event);" class="uk-form form_sign_in" autocomplete="off">
-          <div class="uk-grid uk-grid-collapse uk-container-center uk-width-medium-3-4">
-            <div class="uk-width-medium-3-4 uk-margin-bottom">
-              <input name="email" class="uk-width-1-1 uk-text-contrast form_input" type="email" placeholder="Enter your e-mail">
-            </div>
-            <div class="uk-width-medium-1-4 uk-margin-bottom">
-              <button class="uk-width-1-1 uk-button button_custom_green form_button" type="submit">Subscribe</button>
-            </div>
-          </div>
-          <div class="response_wrapper">
-            <!-- IF MAIL SENT SUCCESSFULLY -->
-            <div class="success">E-mail has been added successfully.</div>
-            <div class="success_response"></div>
-
-            <!-- IF MAIL SENDING UNSUCCESSFULL -->
-            <div class="error">E-mail must be valid and message must be longer than 1 character.</div>
-            <div class="error_response"></div>
-          </div>
-        </form>
-        <a class="uk-modal-close uk-close uk-border-circle subscribe_window_close"></a>
-      </div>
-    </div>
-
-
-
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ngTouch.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBj7cR7j4zbZLwiKDV35BJ6VSASioV0n_8"></script>
     <script type="text/javascript" src="js/uikit.min.js"></script>
     <script type="text/javascript" src="js/slideshow.min.js"></script>
     <script type="text/javascript" src="js/slideshow-fx.min.js"></script>
