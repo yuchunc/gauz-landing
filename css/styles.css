@@ -224,7 +224,7 @@ p {
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 0; 
+	bottom: 0;
 	z-index: 4;
 }
 
@@ -1308,12 +1308,12 @@ p {
 	transition: bottom 0.5s, width 0.5s, height 0.5s, background 0.3s;
 }
 .scroll_top:before {
-	content: "\f105";
+	content: "\f0e0";
     font-family: FontAwesome;
 	position: absolute;
 	top: 0;
 	left: 0;
-	right: 0;
+	right: 18px;
 	bottom: 0;
 	width: 5px;
 	height: 23px;
@@ -1321,9 +1321,9 @@ p {
 	margin: auto;
 	font-size: 24px;
 	color: #fff;
-	-ms-transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+	/*-ms-transform: rotate(-90deg);*/
+  /*-webkit-transform: rotate(-90deg);*/
+  /*transform: rotate(-90deg);*/
 	opacity: 0;
 	transition: opacity 0.1s linear 0.5s;
 }
@@ -1591,7 +1591,7 @@ p {
 	text-shadow: 1px 1px 20px #000, 1px 1px 30px #000;
 	z-index: 3;
 }
-.subscribe_window_close:hover, 
+.subscribe_window_close:hover,
 .subscribe_window_close:focus {
     color: #fff;
     opacity: 0.85;
@@ -1633,7 +1633,7 @@ p {
 	position: relative;
 	-webkit-transform: scale(1.1);
 	-ms-transform: scale(1.1);
-	transform: scale(1.1); 
+	transform: scale(1.1);
 }
 .spinner_folding_cube .spinner_cube:before {
 	content: '';
@@ -1667,7 +1667,7 @@ p {
 }
 .spinner_folding_cube .spinner_cube3:before {
 	-webkit-animation-delay: 0.6s;
-	animation-delay: 0.6s; 
+	animation-delay: 0.6s;
 }
 .spinner_folding_cube .spinner_cube4:before {
 	-webkit-animation-delay: 0.9s;
@@ -1677,30 +1677,30 @@ p {
 	0%, 10% {
 		-webkit-transform: perspective(140px) rotateX(-180deg);
 		transform: perspective(140px) rotateX(-180deg);
-		opacity: 0; 
+		opacity: 0;
 	} 25%, 75% {
 		-webkit-transform: perspective(140px) rotateX(0deg);
 		transform: perspective(140px) rotateX(0deg);
-		opacity: 1; 
+		opacity: 1;
 	} 90%, 100% {
 		-webkit-transform: perspective(140px) rotateY(180deg);
 		transform: perspective(140px) rotateY(180deg);
-		opacity: 0; 
-	} 
+		opacity: 0;
+	}
 }
 @keyframes spinner_foldCubeAngle {
 	0%, 10% {
 		-webkit-transform: perspective(140px) rotateX(-180deg);
 		transform: perspective(140px) rotateX(-180deg);
-		opacity: 0; 
+		opacity: 0;
 	} 25%, 75% {
 		-webkit-transform: perspective(140px) rotateX(0deg);
 		transform: perspective(140px) rotateX(0deg);
-		opacity: 1; 
+		opacity: 1;
 	} 90%, 100% {
 		-webkit-transform: perspective(140px) rotateY(180deg);
 		transform: perspective(140px) rotateY(180deg);
-		opacity: 0; 
+		opacity: 0;
 	}
 }
 
@@ -1724,8 +1724,8 @@ p {
 	}
 }
 @media screen and (max-width: 1440px) {
-	.uk-navbar-content, 
-	.uk-navbar-brand, 
+	.uk-navbar-content,
+	.uk-navbar-brand,
 	.uk-navbar-toggle {
 		height: 80px;
 	}
@@ -1875,12 +1875,12 @@ p {
 	}
 }
 @media screen and (max-width: 767px) {
-	h3, 
+	h3,
 	.uk-h3 {
 		font-size: 32px;
 		line-height: 36px;
 	}
-	h4, 
+	h4,
 	.uk-h4 {
 		font-size: 18px;
 		line-height: 23px;
@@ -1913,13 +1913,13 @@ p {
 	.container_form {
 		padding: 0;
 	}
-	.background_gradient .container_form .uk-form, 
+	.background_gradient .container_form .uk-form,
 	.background_flat .container_form .uk-form,
 	.container_form .uk-form {
 		padding: 0;
 		background: none;
 	}
-	.container_form .container_title, 
+	.container_form .container_title,
 	.container_form .container_subtitle,
 	.container_form .container_description {
 		text-align: center;
@@ -1989,7 +1989,7 @@ p {
 	}
 }
 @media screen and (max-width: 479px) {
-	.container_title, 
+	.container_title,
 	.container_subtitle,
 	.container_form .container_title,
 	.container_form .container_subtitle {
@@ -2012,9 +2012,9 @@ p {
 		left: -20px;
 		right: -20px;
 	}
-	.success, 
-	.success_response, 
-	.error, 
+	.success,
+	.success_response,
+	.error,
 	.error_response {
 		font-size: 14px;
 	}
