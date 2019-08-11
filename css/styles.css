@@ -304,7 +304,7 @@ p {
 	display: none;
 }
 .container_title {
-	margin-bottom: -20px;
+	/*margin-bottom: -20px;*/
 }
 .container_title,
 .container_subtitle {
@@ -329,19 +329,19 @@ p {
 .container_button {
 	margin-top: 30px;
 	text-align: center;
-	font-size: 0;
+	/*font-size: 0;*/
 }
 .container_button_message,
 .container_button_subscribe {
 	display: inline-block;
-	margin-right: 20px;
-	min-height: 40px;
-    padding: 0 20px;
-    line-height: 40px;
+	margin: 0.75em;
+  min-height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
 	border: 1px solid #fff;
 	background: none;
 	color: #fff;
-	font-size: 14px;
+	font-size: 1.5em;
 	transition: background 0.3s, border 0.3s;
 }
 .container_button_message {

@@ -98,8 +98,6 @@ app.controller('myPageCtrl', function($scope,$http){
 				$scope.pageAnimate('team');
 			} else if ($(e.target).hasClass('link_customers')) {
 				$scope.pageAnimate('reviews');
-			} else if ($(e.target).hasClass('container_button_subscribe')) {
-				$scope.pageAnimate('subscribe');
 			} else if ($(e.target).hasClass('container_button_message')) {
 				$scope.pageAnimate('contact');
 			} else if ($(e.target).hasClass('link_contacts')) {
