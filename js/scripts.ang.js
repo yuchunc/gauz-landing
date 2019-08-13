@@ -516,39 +516,39 @@ app.controller('myPageCtrl', function($scope,$http){
 	/* FORM SUBMIT HINTS
 	/* ------------------------------ */
 
-	$scope.removeFormElements = function(current_form) {
-		current_form.find('input').remove();
-		current_form.find('textarea').remove();
-		current_form.find('button').remove();
-	}
+  // $scope.removeFormElements = function(current_form) {
+	// 	current_form.find('input').remove();
+	// 	current_form.find('textarea').remove();
+	// 	current_form.find('button').remove();
+	// }
 
 	/* ------------------------------ */
 	/* MAILCHIMP SUBSCRIBE FORM
 	/* ------------------------------ */
 
-	$scope.mailchimpForm = function() {
-		$scope.form = [];
-		for (var i = 0; i < $('[data-ng-submit="mailchimpForm"]').length; i++) {
-			(function(i) {
-				$scope.form[i] = $('[data-ng-submit="mailchimpForm"]').eq(i);
-				$scope.form[i].ajaxChimp({
-					callback: function(resp){
-						if (resp.result === 'success') {
-							$scope.removeFormElements($scope.form[i]);
-							$scope.form[i].find('.success').fadeIn(1000).end()
-								.find('.success_response').html(resp.msg).fadeIn(1000).end()
-								.find('.error').fadeOut(0).end()
-								.find('.error_response').fadeOut(0);
-						} else if (resp.result === 'error') {
-							$scope.form[i].find('.error').fadeIn(1000).end()
-								.find('.error_response').html(resp.msg).fadeIn(1000);
-						}
-					},
-					url: "http://google.us3.list-manage.com/subscribe/post?u=54cac12d99d1b2a0c0e0177b4&amp;id=d5469b7ba3" // Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".
-				});
-			})(i);
-		}
-	}
+  // $scope.mailchimpForm = function() {
+	// 	$scope.form = [];
+	// 	for (var i = 0; i < $('[data-ng-submit="mailchimpForm"]').length; i++) {
+	// 		(function(i) {
+	// 			$scope.form[i] = $('[data-ng-submit="mailchimpForm"]').eq(i);
+	// 			$scope.form[i].ajaxChimp({
+	// 				callback: function(resp){
+	// 					if (resp.result === 'success') {
+	// 						$scope.removeFormElements($scope.form[i]);
+	// 						$scope.form[i].find('.success').fadeIn(1000).end()
+	// 							.find('.success_response').html(resp.msg).fadeIn(1000).end()
+	// 							.find('.error').fadeOut(0).end()
+	// 							.find('.error_response').fadeOut(0);
+	// 					} else if (resp.result === 'error') {
+	// 						$scope.form[i].find('.error').fadeIn(1000).end()
+	// 							.find('.error_response').html(resp.msg).fadeIn(1000);
+	// 					}
+	// 				},
+	// 				url: "http://google.us3.list-manage.com/subscribe/post?u=54cac12d99d1b2a0c0e0177b4&amp;id=d5469b7ba3" // Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".
+	// 			});
+	// 		})(i);
+	// 	}
+	// }
 
 	$scope.mailchimpForm();
 
@@ -556,110 +556,110 @@ app.controller('myPageCtrl', function($scope,$http){
 	/* SUBSCRIBE FORM
 	/* ------------------------------ */
 
-	$scope.subLetterForm = function($event) {
-		$event.preventDefault();
-		$scope.target = $($event.target),
-		$scope.email = $scope.target.find('[name="email"]').val(),
-		$scope.dataString = 'email=' + $scope.email;
+  // $scope.subLetterForm = function($event) {
+	// 	$event.preventDefault();
+	// 	$scope.target = $($event.target),
+	// 	$scope.email = $scope.target.find('[name="email"]').val(),
+	// 	$scope.dataString = 'email=' + $scope.email;
 
-		$scope.isValidEmail = function(emailAddress) {
-			$scope.pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-			return $scope.pattern.test(emailAddress);
-		};
+	// 	$scope.isValidEmail = function(emailAddress) {
+	// 		$scope.pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+	// 		return $scope.pattern.test(emailAddress);
+	// 	};
 
-		if ($scope.isValidEmail($scope.email)) {
-			$http({
-				method: "POST",
-				url: "php/subscribe.php",
-				data: $scope.dataString,
-				headers: {"Content-Type": "application/x-www-form-urlencoded"}
-			}).then(function(response) {
-				$scope.removeFormElements($scope.target);
-				$scope.target
-					.find('.success').fadeIn(1000).end()
-					.find('.error').fadeOut(0);
-			}, function(response) {
-				$scope.target.find('.error').fadeIn(1000);
-			})
-		} else {
-			$scope.target.find('.error').fadeIn(1000);
-		}
+	// 	if ($scope.isValidEmail($scope.email)) {
+	// 		$http({
+	// 			method: "POST",
+	// 			url: "php/subscribe.php",
+	// 			data: $scope.dataString,
+	// 			headers: {"Content-Type": "application/x-www-form-urlencoded"}
+	// 		}).then(function(response) {
+	// 			$scope.removeFormElements($scope.target);
+	// 			$scope.target
+	// 				.find('.success').fadeIn(1000).end()
+	// 				.find('.error').fadeOut(0);
+	// 		}, function(response) {
+	// 			$scope.target.find('.error').fadeIn(1000);
+	// 		})
+	// 	} else {
+	// 		$scope.target.find('.error').fadeIn(1000);
+	// 	}
 
-	}
+	// }
 
 	/* ------------------------------ */
 	/* MESSAGE FORM
 	/* ------------------------------ */
 
-	$scope.contactForm = function($event) {
-		$event.preventDefault();
-		$scope.target = $($event.target),
-		$scope.name = $scope.target.find('[name="name"]').val(),
-		$scope.email = $scope.target.find('[name="email"]').val(),
-		$scope.message = $scope.target.find('[name="message"]').val(),
-		$scope.dataString = 'name=' + $scope.name + '&email=' + $scope.email + '&message=' + $scope.message;
+  // $scope.contactForm = function($event) {
+	// 	$event.preventDefault();
+	// 	$scope.target = $($event.target),
+	// 	$scope.name = $scope.target.find('[name="name"]').val(),
+	// 	$scope.email = $scope.target.find('[name="email"]').val(),
+	// 	$scope.message = $scope.target.find('[name="message"]').val(),
+	// 	$scope.dataString = 'name=' + $scope.name + '&email=' + $scope.email + '&message=' + $scope.message;
 
-		$scope.isValidEmail = function(emailAddress) {
-			$scope.pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-			return $scope.pattern.test(emailAddress);
-		};
+	// 	$scope.isValidEmail = function(emailAddress) {
+	// 		$scope.pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+	// 		return $scope.pattern.test(emailAddress);
+	// 	};
 
-		if ($scope.isValidEmail($scope.email) && ($scope.message.length > 1) && ($scope.name.length > 1)) {
-			$http({
-				method: "POST",
-				url: "php/sendmail.php",
-				data: $scope.dataString,
-				headers: {"Content-Type": "application/x-www-form-urlencoded"}
-			}).then(function(response) {
-				$scope.removeFormElements($scope.target);
-				$scope.target
-					.find('.success').fadeIn(1000).end()
-					.find('.error').fadeOut(0);
-			}, function(response) {
-				$scope.target.find('.error').fadeIn(1000);
-			})
-		} else {
-			$scope.target.find('.error').fadeIn(1000);
-		}
+	// 	if ($scope.isValidEmail($scope.email) && ($scope.message.length > 1) && ($scope.name.length > 1)) {
+	// 		$http({
+	// 			method: "POST",
+	// 			url: "php/sendmail.php",
+	// 			data: $scope.dataString,
+	// 			headers: {"Content-Type": "application/x-www-form-urlencoded"}
+	// 		}).then(function(response) {
+	// 			$scope.removeFormElements($scope.target);
+	// 			$scope.target
+	// 				.find('.success').fadeIn(1000).end()
+	// 				.find('.error').fadeOut(0);
+	// 		}, function(response) {
+	// 			$scope.target.find('.error').fadeIn(1000);
+	// 		})
+	// 	} else {
+	// 		$scope.target.find('.error').fadeIn(1000);
+	// 	}
 
-	}
+	// }
 
 	/* ------------------------------ */
 	/* ELASTIC MESSAGE FORM
 	/* ------------------------------ */
 
-	$scope.elasticForm = function($event) {
-		$event.preventDefault();
-		$scope.target = $($event.target),
-		$scope.name = $scope.target.find('[name="name"]').val(),
-		$scope.email = $scope.target.find('[name="email"]').val(),
-		$scope.message = $scope.target.find('[name="message"]').val(),
-		$scope.dataString = 'name=' + $scope.name + '&email=' + $scope.email + '&message=' + $scope.message;
+  // $scope.elasticForm = function($event) {
+	// 	$event.preventDefault();
+	// 	$scope.target = $($event.target),
+	// 	$scope.name = $scope.target.find('[name="name"]').val(),
+	// 	$scope.email = $scope.target.find('[name="email"]').val(),
+	// 	$scope.message = $scope.target.find('[name="message"]').val(),
+	// 	$scope.dataString = 'name=' + $scope.name + '&email=' + $scope.email + '&message=' + $scope.message;
 
-		$scope.isValidEmail = function(emailAddress) {
-			$scope.pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-			return $scope.pattern.test(emailAddress);
-		};
+	// 	$scope.isValidEmail = function(emailAddress) {
+	// 		$scope.pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+	// 		return $scope.pattern.test(emailAddress);
+	// 	};
 
-		if ($scope.isValidEmail($scope.email) && ($scope.message.length > 1) && ($scope.name.length > 1)) {
-			$http({
-				method: "POST",
-				url: "php/sendmessage.php",
-				data: $scope.dataString,
-				headers: {"Content-Type": "application/x-www-form-urlencoded"}
-			}).then(function(response) {
-				$scope.removeFormElements($scope.target);
-				$scope.target
-					.find('.success').fadeIn(1000).end()
-					.find('.error').fadeOut(0);
-			}, function(response) {
-				$scope.target.find('.error').fadeIn(1000);
-			})
-		} else {
-			$scope.target.find('.error').fadeIn(1000);
-		}
+	// 	if ($scope.isValidEmail($scope.email) && ($scope.message.length > 1) && ($scope.name.length > 1)) {
+	// 		$http({
+	// 			method: "POST",
+	// 			url: "php/sendmessage.php",
+	// 			data: $scope.dataString,
+	// 			headers: {"Content-Type": "application/x-www-form-urlencoded"}
+	// 		}).then(function(response) {
+	// 			$scope.removeFormElements($scope.target);
+	// 			$scope.target
+	// 				.find('.success').fadeIn(1000).end()
+	// 				.find('.error').fadeOut(0);
+	// 		}, function(response) {
+	// 			$scope.target.find('.error').fadeIn(1000);
+	// 		})
+	// 	} else {
+	// 		$scope.target.find('.error').fadeIn(1000);
+	// 	}
 
-	}
+	// }
 
 });
 
