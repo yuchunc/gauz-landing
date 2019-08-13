@@ -442,26 +442,28 @@ p {
 /******* Elements section *******/
 
 .elements {
-    padding: 70px 0 30px;
+  padding: 70px 0 30px;
 	background: #fff;
 }
 .elements_item_label {
 	width: 180px;
 	height: 180px;
-	border: 1px solid #ccc;
+	/*border: 1px solid #ccc;*/
 	font-size: 85px;
 	line-height: 180px;
 	color: #5C6D7F;
 	box-shadow: none;
 	background: #fff;
 	transition: box-shadow 0.5s, border 0.5s, text-shadow 0.5s;
-	text-shadow: 3px 3px 7px rgba(0,0,0,0.4);
+	/*text-shadow: 3px 3px 7px rgba(0,0,0,0.4);*/
 }
-.elements_item_label:hover {
-	border: 1px solid #fff;
-    box-shadow: 10px 10px 10px #ccc;
-	text-shadow: none;
-}
+
+/*.elements_item_label:hover {*/
+	/*border: 1px solid #fff;*/
+  /*box-shadow: 10px 10px 10px #ccc;*/
+	/*text-shadow: none;*/
+/*}*/
+
 .elements_item_text {
 	font-size: 21px;
 	color: #333;
@@ -1131,10 +1133,10 @@ p {
 /******* Contact *******/
 
 .contact {
-    padding: 100px 0;
-	background: url('http://placehold.it/1920x1080') no-repeat 0 0;
-    background-size: cover;
-    background-attachment: fixed;
+  padding: 100px 0;
+	background: url('../images/banner-bg.jpg') no-repeat 0 0;
+  background-size: cover;
+  background-attachment: fixed;
 	border: 0;
 }
 
@@ -1156,10 +1158,12 @@ p {
 .form_input {
 	height: 45px !important;
 	font-size: 14px !important;
+  background-color: rgba(255, 255, 255, 0.30) !important;
 }
 .form_textarea {
 	min-height: 100px;
 	font-size: 14px !important;
+  background-color: rgba(255, 255, 255, 0.30) !important;
 }
 .form_button {
 	position: relative;
