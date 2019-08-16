@@ -550,7 +550,7 @@ app.controller('myPageCtrl', function($scope,$http){
 	// 	}
 	// }
 
-	$scope.mailchimpForm();
+	//$scope.mailchimpForm();
 
 	/* ------------------------------ */
 	/* SUBSCRIBE FORM
