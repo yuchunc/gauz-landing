@@ -1276,7 +1276,7 @@ p {
 	color: #5C6D7F;
 	font-size: 70px;
 	transition: text-shadow 0.5s;
-	text-shadow: 3px 3px 7px rgba(0,0,0,0.4);
+  /*text-shadow: 3px 3px 7px rgba(0,0,0,0.4);*/
 }
 .address_label:hover {
 	text-shadow: none;
